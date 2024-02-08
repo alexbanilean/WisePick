@@ -1,7 +1,7 @@
 import { SignIn } from "@clerk/nextjs";
 import Link from "next/link";
 
-const SignInPage = () => {
+export default function SignInPage() {
   return (
     <div className="full-w m-auto flex flex-col flex-wrap items-center justify-center gap-2 p-6">
       <Link
@@ -13,6 +13,4 @@ const SignInPage = () => {
       <SignIn />
     </div>
   );
-};
-
-export default SignInPage;
+}

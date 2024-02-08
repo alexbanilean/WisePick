@@ -1,3 +1,3 @@
-export default function SearchBar() {
+export const SearchBar = () => {
   return <div>Search bar</div>;
-}
+};

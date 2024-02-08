@@ -2,7 +2,7 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
-export default function NavBar() {
+export const NavBar = () => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -89,4 +89,4 @@ export default function NavBar() {
       </div>
     </nav>
   );
-}
+};

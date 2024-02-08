@@ -1,7 +1,6 @@
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { SearchBar } from "./SearchBar";
 
 export const NavBar = () => {
   const { theme, setTheme } = useTheme();

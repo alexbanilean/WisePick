@@ -1,21 +1,51 @@
-import Image from "next/image";
-import { SignedIn, SignedOut, UserButton, SignInButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
+import Link from "next/link";
+import { SearchBar } from "./SearchBar";
 
-export const Navbar = () => {
+export const NavBar = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <nav className="border-gray-200 bg-white dark:bg-gray-800">
-      <div className="mx-auto flex flex-wrap items-center justify-between p-6">
-        <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
+    <nav className="border-gray-200 bg-blue-600 dark:bg-gray-800">
+      <div className="mx-auto flex flex-wrap items-center justify-between p-3">
+        <Link
+          href="/"
+          className="self-center whitespace-nowrap text-2xl font-semibold text-white"
+        >
           WisePick
-        </span>
+        </Link>
+
+        <SearchBar />
+
         <div className="flex items-center space-x-3 md:order-2 md:gap-4 md:space-x-0 rtl:space-x-reverse">
+          <button
+            data-drawer-target="cta-button-sidebar"
+            data-drawer-toggle="cta-button-sidebar"
+            aria-controls="cta-button-sidebar"
+            type="button"
+            className="ms-3 mt-2 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          >
+            <span className="sr-only">Open sidebar</span>
+            <svg
+              className="h-6 w-6"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                fillRule="evenodd"
+                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+              ></path>
+            </svg>
+          </button>
+
           <button
             id="theme-toggle"
             type="button"
-            className="rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            className="rounded-lg p-2 text-sm text-white hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             onClick={() => {
               setTheme(theme === "light" ? "dark" : "light");
             }}
@@ -51,11 +81,12 @@ export const Navbar = () => {
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
           <SignedOut>
-            <SignInButton>
-              <button className="rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
-                Sign in
-              </button>
-            </SignInButton>
+            <Link
+              href="/sign-in"
+              className="rounded-lg p-2 text-white hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >
+              Sign in
+            </Link>
           </SignedOut>
         </div>
       </div>

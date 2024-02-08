@@ -16,15 +16,13 @@ export const NavBar = () => {
           WisePick
         </Link>
 
-        <SearchBar />
-
-        <div className="flex items-center space-x-3 md:order-2 md:gap-4 md:space-x-0 rtl:space-x-reverse">
+        <div className="flex items-center gap-2 md:order-2 md:gap-4 md:space-x-0 rtl:space-x-reverse">
           <button
             data-drawer-target="cta-button-sidebar"
             data-drawer-toggle="cta-button-sidebar"
             aria-controls="cta-button-sidebar"
             type="button"
-            className="ms-3 mt-2 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="flex items-center rounded-lg p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           >
             <span className="sr-only">Open sidebar</span>
             <svg
@@ -45,7 +43,7 @@ export const NavBar = () => {
           <button
             id="theme-toggle"
             type="button"
-            className="rounded-lg p-2 text-sm text-white hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            className="rounded-lg p-1.5 text-sm text-white hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             onClick={() => {
               setTheme(theme === "light" ? "dark" : "light");
             }}

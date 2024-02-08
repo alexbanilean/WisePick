@@ -1,4 +1,4 @@
-export const SideBar = () => {
+export default function SideBar() {
   return (
     <>
       <aside
@@ -399,4 +399,4 @@ export const SideBar = () => {
       </div> */}
     </>
   );
-};
+}

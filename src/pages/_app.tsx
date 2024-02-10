@@ -4,6 +4,7 @@ import { api } from "~/utils/api";
 import "~/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
+import { Provider } from "jotai";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
@@ -14,7 +15,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           <meta name="description" content="Pick your products wise" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Component {...pageProps} />
+        <Provider>
+          <Component {...pageProps} />
+        </Provider>
       </ClerkProvider>
     </ThemeProvider>
   );

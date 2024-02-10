@@ -1,16 +1,19 @@
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { useAtom } from "jotai";
+import { sidebarOpenAtom } from "../store";
 
 export const NavBar = () => {
   const { theme, setTheme } = useTheme();
+  const [, setSidebarOpen] = useAtom(sidebarOpenAtom);
 
   return (
     <nav className="border-gray-200 bg-blue-600 dark:bg-gray-800">
       <div className="mx-auto flex flex-wrap items-center justify-between p-3">
         <Link
           href="/"
-          className="self-center whitespace-nowrap text-2xl font-semibold text-white"
+          className="self-center whitespace-nowrap px-2 text-2xl font-semibold text-white"
         >
           WisePick
         </Link>
@@ -20,8 +23,10 @@ export const NavBar = () => {
             data-drawer-target="cta-button-sidebar"
             data-drawer-toggle="cta-button-sidebar"
             aria-controls="cta-button-sidebar"
-            type="button"
-            className="flex items-center rounded-lg p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="flex items-center rounded-lg p-1 text-sm text-white hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-500 sm:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            onClick={() => {
+              setSidebarOpen((prev) => !prev);
+            }}
           >
             <span className="sr-only">Open sidebar</span>
             <svg
@@ -82,7 +87,7 @@ export const NavBar = () => {
               href="/sign-in"
               className="rounded-lg p-2 text-white hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             >
-              Sign in
+              Sign In
             </Link>
           </SignedOut>
         </div>

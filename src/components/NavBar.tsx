@@ -9,7 +9,7 @@ export const NavBar = () => {
   const [, setSidebarOpen] = useAtom(sidebarOpenAtom);
 
   return (
-    <nav className="border-gray-200 bg-blue-600 dark:bg-gray-800">
+    <nav className="z-20 border-gray-200 bg-blue-600 dark:bg-gray-800">
       <div className="mx-auto flex flex-wrap items-center justify-between p-3">
         <Link
           href="/"
@@ -23,7 +23,7 @@ export const NavBar = () => {
             data-drawer-target="cta-button-sidebar"
             data-drawer-toggle="cta-button-sidebar"
             aria-controls="cta-button-sidebar"
-            className="flex items-center rounded-lg p-1 text-sm text-white hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-500 sm:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            className="flex items-center rounded-lg p-1 text-sm text-white hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700 sm:hidden"
             onClick={() => {
               setSidebarOpen((prev) => !prev);
             }}

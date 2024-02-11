@@ -3,7 +3,13 @@ import type { NextPageWithLayout } from "../_app";
 import type { ReactElement } from "react";
 
 const FavouritesPage: NextPageWithLayout = () => {
-  return <div>Hello from favourites</div>;
+  return (
+    <div className="w-full p-10">
+      <h1 className="text-2xl font-bold text-blue-600 dark:text-white">
+        Favourites
+      </h1>
+    </div>
+  );
 };
 
 FavouritesPage.getLayout = function getLayout(page: ReactElement) {

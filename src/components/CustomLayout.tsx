@@ -6,7 +6,7 @@ export const CustomLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <PageLayout>
       <NavBar />
-      <div className="flex overflow-auto">
+      <div className="z-10 flex overflow-auto">
         <SideBar />
         {children}
       </div>

@@ -20,17 +20,14 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <ThemeProvider attribute="class" disableTransitionOnChange enableSystem>
+    <ThemeProvider attribute="class" disableTransitionOnChange>
       <ClerkProvider {...pageProps}>
         <Head>
           <title>WisePick</title>
           <meta name="description" content="Pick your products wise" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Provider>
-          {getLayout(
-          <Component {...pageProps} />)}
-        </Provider>
+        <Provider>{getLayout(<Component {...pageProps} />)}</Provider>
       </ClerkProvider>
     </ThemeProvider>
   );

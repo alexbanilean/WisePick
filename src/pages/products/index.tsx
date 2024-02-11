@@ -4,6 +4,7 @@ import type { ReactElement } from "react";
 import { DataTable } from "~/components/products/data-table";
 import { type Product, columns } from "~/components/products/columns";
 import { api } from "~/utils/api";
+import { LoadingSpinner } from "~/components/loading";
 
 const ProductsPage: NextPageWithLayout = () => {
   const { data: products, isLoading } = api.product.getAll.useQuery();
@@ -15,8 +16,11 @@ const ProductsPage: NextPageWithLayout = () => {
 
   return (
     <div className="w-full p-10">
+      <h1 className="text-2xl font-bold text-blue-600 dark:text-white">
+        Products
+      </h1>
       {isLoading ? (
-        <div>Loading...</div>
+        <LoadingSpinner size={20} />
       ) : (
         <DataTable
           columns={columns}

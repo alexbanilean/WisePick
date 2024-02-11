@@ -1,4 +1,6 @@
-import { type AppType } from "next/app";
+import type { AppProps } from "next/app";
+import type { NextPage } from "next";
+import type { ReactElement, ReactNode } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import { api } from "~/utils/api";
 import "~/styles/globals.css";
@@ -6,7 +8,17 @@ import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { Provider } from "jotai";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange enableSystem>
       <ClerkProvider {...pageProps}>
@@ -16,7 +28,8 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Provider>
-          <Component {...pageProps} />
+          {getLayout(
+          <Component {...pageProps} />)}
         </Provider>
       </ClerkProvider>
     </ThemeProvider>

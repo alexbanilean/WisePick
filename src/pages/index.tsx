@@ -1,16 +1,14 @@
-import { PageLayout } from "~/components/PageLayout";
-import { NavBar } from "~/components/NavBar";
-import { SideBar } from "~/components/SideBar";
+import { CustomLayout } from "~/components/CustomLayout";
+import { api } from "~/utils/api";
 
 export default function Home() {
-  // const hello = api.post.hello.useQuery({ text: "from tRPC" });
+  // start fetching ASAP
+  api.product.getAll.useQuery();
 
   return (
-    <>
-      <PageLayout>
-        <NavBar />
-        <SideBar />
-      </PageLayout>
-    </>
+    <CustomLayout>
+      <div>Hello from home</div>
+      {/* Here add general products and other info*/}
+    </CustomLayout>
   );
 }

@@ -45,7 +45,6 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/csv-parse": "^1.2.2",
     "@types/eslint": "^8.44.7",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
